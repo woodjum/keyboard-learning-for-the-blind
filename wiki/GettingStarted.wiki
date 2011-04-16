@@ -1,3 +1,8 @@
+#labels Featured
+# How to run the code as a user and as a developer
+=Getting Started=
+
+==Basic Setup==
 First install the following software:
   # Microsoft .Net 2.0   
   # SpeechSDK51  & SpeechSDK51LangPack
@@ -5,3 +10,7 @@ First install the following software:
 
 Then download the executable:
 [Downloads]
+
+==Scripters==
+
+==Developers==

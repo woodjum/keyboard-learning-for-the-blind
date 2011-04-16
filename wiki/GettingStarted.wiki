@@ -1,5 +1,5 @@
 #labels Featured
-# How to run the code as a user and as a developer
+#How to run the code as a user and as a developer
 =Getting Started=
 
 ==Basic Setup==

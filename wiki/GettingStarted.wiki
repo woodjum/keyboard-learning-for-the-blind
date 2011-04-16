@@ -8,10 +8,10 @@ First install the following software:
   # SpeechSDK51  & SpeechSDK51LangPack
 [http://www.microsoft.com/downloads/details.aspx?FamilyID=5e86ec97-40a7-453f-b0ee-6583171b4530&displaylang=en ]
 
-Then download the executable:
-[Downloads]
+Then download a build under Downloads.
 
 ==Scripters==
 Lessons are contained under the 'lessons' folder. New lesson files added to the folder should automatically be run by the executable without need to re-build.
 
 ==Developers==
+Source code is within a visual studio 2008 project. This code can be checked out under the Source tab.

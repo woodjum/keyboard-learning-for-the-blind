@@ -1,6 +1,6 @@
 #labels Featured
-#How to run the code as a user and as a developer
 =Getting Started=
+How to run the code running
 
 ==Basic Setup==
 First install the following software:
@@ -12,5 +12,6 @@ Then download the executable:
 [Downloads]
 
 ==Scripters==
+Lessons are contained under the 'lessons' folder. New lesson files added to the folder should automatically be run by the executable without need to re-build.
 
 ==Developers==

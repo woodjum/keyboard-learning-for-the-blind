@@ -3,12 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseKeyboardLibrary", "MouseKeyboardLibrary\MouseKeyboardLibrary.csproj", "{BE99A41C-4B23-4B22-92FD-6CEC39AF56DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyboardLesson1Demo", "KeyboardLesson1Demo\KeyboardLesson1Demo.csproj", "{BCFE33DB-8242-4744-BEA8-CC8FB85056E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyboardLessonDemo", "KeyboardLesson1Demo\KeyboardLessonDemo.csproj", "{BCFE33DB-8242-4744-BEA8-CC8FB85056E6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{BE99A41C-4B23-4B22-92FD-6CEC39AF56DD} = {BE99A41C-4B23-4B22-92FD-6CEC39AF56DD}
 	EndProjectSection
 EndProject
 Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

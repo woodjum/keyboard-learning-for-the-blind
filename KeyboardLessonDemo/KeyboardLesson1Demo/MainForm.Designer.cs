@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.LessonListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -41,11 +42,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "主菜单 (main menu)";
             // 
+            // LessonListBox
+            // 
+            this.LessonListBox.FormattingEnabled = true;
+            this.LessonListBox.Location = new System.Drawing.Point(22, 66);
+            this.LessonListBox.Name = "LessonListBox";
+            this.LessonListBox.Size = new System.Drawing.Size(234, 173);
+            this.LessonListBox.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.LessonListBox);
             this.Controls.Add(this.label1);
             this.Name = "MainForm";
             this.Text = "Keyboard Learning";
@@ -57,5 +67,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox LessonListBox;
     }
 }

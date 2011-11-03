@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ExerciseGenerator;
 
 namespace KeyGameModel
 {
@@ -24,6 +25,7 @@ namespace KeyGameModel
                 return _sequence;
             }
         }
+
 
         public bool EndOfSequence
         {
@@ -100,6 +102,21 @@ namespace KeyGameModel
         public LevelSequence Clone()
         {
             return new LevelSequence() { _sequence = new List<string>(this._sequence), _currentIndex = 0 };
+        }
+
+        public string ToString()
+        {
+            if (_sequence == null)
+            {
+                return null;
+            }
+
+            string tempSeqence = "";
+            foreach (string current in _sequence)
+            {
+                tempSeqence += current;
+            }
+            return tempSeqence;
         }
     }
 }

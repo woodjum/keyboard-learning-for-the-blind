@@ -6,7 +6,7 @@ How to run the code running
 First install the following software on the system:
   # Microsoft .Net 2.0   
   # SpeechSDK51 http://www.microsoft.com/downloads/details.aspx?FamilyID=5e86ec97-40a7-453f-b0ee-6583171b4530&displaylang=en 
-  # SpeechSDK51LangPack http://www.microsoft.com/downloads/details.aspx? FamilyID=5e86ec97-40a7-453f-b0ee-6583171b4530&displaylang=en 
+  # SpeechSDK51LangPack http://www.microsoft.com/downloads/details.aspx?FamilyID=5e86ec97-40a7-453f-b0ee-6583171b4530&displaylang=en 
 
 Then download the latest build under Downloads. The executable within the build should run.
 

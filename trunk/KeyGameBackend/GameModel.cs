@@ -3,13 +3,9 @@ using System.Collections.Generic;
 
 namespace KeyGameModel
 {
-    public class GameModel
+    public class GameModel : BaseGameModel
     {
-        /// <summary>
-        /// enum to keep track of current Game state, may replace with Events
-        /// </summary>
-        [Flags]
-        public enum GameState { Correct, Incorrect, EndOfSequence, EndOfLevel, InvalidGameState }
+
 
         #region Private Members
 
@@ -48,7 +44,7 @@ namespace KeyGameModel
         /// if subsequent character, use the timespan between last and this key press.
         /// 
         /// <returns>return the currect state, [Flags] allow for scenarios such as Correct|EndOfLevel, Incorrect|EndOfSequence, etc.</returns>
-        public GameState UserInput(String input, int milliSeconds)
+        public override GameState UserInput(String input, int milliSeconds)
         {
             GameState returnFlags;
             if (_currentSequence != null && !String.IsNullOrEmpty(_currentSequence.CurrentCharacter))
@@ -113,7 +109,7 @@ namespace KeyGameModel
         /// <summary>
         /// view would ask for next sequence at the beginning and every time it encounters EndOfSequence state
         /// </summary>
-        public LevelSequence NextSequence
+        public override LevelSequence NextSequence
         {
             get
             {
@@ -129,7 +125,7 @@ namespace KeyGameModel
         /// <summary>
         /// Gets the current sequence being worked on
         /// </summary>
-        public LevelSequence CurrentSequence
+        public override LevelSequence CurrentSequence
         {
             get
             {
@@ -137,7 +133,7 @@ namespace KeyGameModel
             }
         }
 
-        public int TotalScore
+        public override int TotalScore
         {
             get
             {
@@ -145,7 +141,7 @@ namespace KeyGameModel
             }
         }
 
-        public int BaseScore
+        public override int BaseScore
         {
             get
             {
@@ -153,7 +149,7 @@ namespace KeyGameModel
             }
         }
 
-        public int SpeedBonus
+        public override int SpeedBonus
         {
             get
             {
@@ -161,7 +157,7 @@ namespace KeyGameModel
             }
         }
 
-        public int ChainBonus
+        public override int ChainBonus
         {
             get
             {

@@ -4,9 +4,9 @@ How to run the code running
 
 ==Basic Setup==
 First install the following software on the system:
-  # Microsoft .Net 2.0   
-  # SpeechSDK51 http://www.microsoft.com/downloads/details.aspx?FamilyID=5e86ec97-40a7-453f-b0ee-6583171b4530&displaylang=en 
-  # SpeechSDK51LangPack http://www.microsoft.com/downloads/details.aspx?FamilyID=5e86ec97-40a7-453f-b0ee-6583171b4530&displaylang=en 
+  # Microsoft .Net 2.0 [http://www.microsoft.com/download/en/details.aspx?id=6523 64 bit] [http://www.microsoft.com/download/en/details.aspx?id=19 32 bit]
+  # [http://www.microsoft.com/downloads/details.aspx?FamilyID=5e86ec97-40a7-453f-b0ee-6583171b4530&displaylang=en  SpeechSDK51]
+  # [http://www.microsoft.com/downloads/details.aspx?FamilyID=5e86ec97-40a7-453f-b0ee-6583171b4530&displaylang=en SpeechSDK51LangPack]
 
 Then download the latest build under Downloads. The executable within the build should run.
 

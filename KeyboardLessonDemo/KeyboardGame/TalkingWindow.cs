@@ -77,5 +77,31 @@ namespace KeyboardGame
             }
         }
 
+        public void PlaySound(string soundFilename) 
+        {
+            SpFileStream fs = new SpFileStream(); // File stream for loading wav file
+            try
+            {
+                if (fs != null)
+                {
+                    // Use SVSFDefault to make sure speech play the wav file
+                    fs.Open(soundFilename, SpeechStreamFileMode.SSFMOpenForRead, false);
+                    speech.SpeakStream(fs, SpeechVoiceSpeakFlags.SVSFDefault);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception!\n" + ex.Message);
+            }
+            finally
+            {
+                // Make sure file stream close
+                if (fs != null)
+                {
+                    fs.Close();
+                }
+            }
+        }
+
     }
 }

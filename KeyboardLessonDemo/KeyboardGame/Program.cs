@@ -18,7 +18,7 @@ namespace KeyboardGame
             Application.SetCompatibleTextRenderingDefault(false);
 
             GameConfiguration config = new GameConfiguration();
-            Level level = new Level("C:\\Users\\Jessica\\Documents\\Visual Studio 2008\\Projects\\ExerciseGenerator\\bin\\Debug\\TestExercise1.exercise");
+            Level level = new Level(".\\Levels\\TestExercise1.exercise");
 
             GameController controller = new GameController(config, level);
  

@@ -65,11 +65,12 @@
             this.ScreenLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ScreenLabel.AutoSize = true;
             this.ScreenLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScreenLabel.Location = new System.Drawing.Point(136, 61);
+            this.ScreenLabel.Location = new System.Drawing.Point(121, 56);
             this.ScreenLabel.Name = "ScreenLabel";
-            this.ScreenLabel.Size = new System.Drawing.Size(24, 25);
+            this.ScreenLabel.Size = new System.Drawing.Size(55, 30);
             this.ScreenLabel.TabIndex = 1;
             this.ScreenLabel.Text = "评分";
+            this.ScreenLabel.UseCompatibleTextRendering = true;
             // 
             // ScoreView
             // 

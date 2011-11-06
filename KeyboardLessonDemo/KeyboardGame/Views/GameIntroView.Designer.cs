@@ -43,6 +43,7 @@
             this.tableLayoutPanel1.Controls.Add(this.DescriptionLabel, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -55,27 +56,32 @@
             this.TitleLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.Location = new System.Drawing.Point(109, 113);
+            this.TitleLabel.Location = new System.Drawing.Point(111, 106);
+            this.TitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(82, 37);
+            this.TitleLabel.Size = new System.Drawing.Size(77, 44);
             this.TitleLabel.TabIndex = 0;
             this.TitleLabel.Text = "Title";
+            this.TitleLabel.UseCompatibleTextRendering = true;
             // 
             // DescriptionLabel
             // 
             this.DescriptionLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.DescriptionLabel.AutoSize = true;
             this.DescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DescriptionLabel.Location = new System.Drawing.Point(105, 150);
+            this.DescriptionLabel.Location = new System.Drawing.Point(106, 150);
+            this.DescriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DescriptionLabel.Name = "DescriptionLabel";
-            this.DescriptionLabel.Size = new System.Drawing.Size(89, 20);
+            this.DescriptionLabel.Size = new System.Drawing.Size(88, 24);
             this.DescriptionLabel.TabIndex = 1;
             this.DescriptionLabel.Text = "Description";
+            this.DescriptionLabel.UseCompatibleTextRendering = true;
             // 
             // GameIntroView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.Name = "GameIntroView";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

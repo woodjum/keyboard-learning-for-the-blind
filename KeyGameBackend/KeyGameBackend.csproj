@@ -42,7 +42,9 @@
     <Compile Include="GameConfigReader.cs" />
     <Compile Include="GameConfiguration.cs" />
     <Compile Include="GameModel.cs" />
+    <Compile Include="BaseGameModel.cs" />
     <Compile Include="Level.cs" />
+    <Compile Include="MockGameModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LevelSequence.cs" />
   </ItemGroup>

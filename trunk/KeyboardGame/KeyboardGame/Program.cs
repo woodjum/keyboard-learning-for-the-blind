@@ -17,7 +17,7 @@ namespace KeyboardGame
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            GameConfiguration config = new GameConfiguration();
+            GameConfiguration config = GameConfigReader.GetGameConfig(@".\KeyboardGame.exe");
             Level level = new Level(".\\Levels\\TestExercise1.exercise");
 
             GameController controller = new GameController(config, level);

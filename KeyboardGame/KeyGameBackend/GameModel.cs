@@ -116,7 +116,7 @@ namespace KeyGameModel
                 do
                 {
                     _currentSequence = _level.NextSequence;
-                } while (_currentSequence.SequenceLength <= _configuration.MaxSequenceLength);
+                } while (_currentSequence.SequenceLength > _configuration.MaxSequenceLength);
                 _currentSequenceSpeedBonus = 0;
                 return _currentSequence.Clone();
             }

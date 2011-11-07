@@ -10,7 +10,7 @@ namespace KeyGameModel
         {
             get
             {
-                return (int)this["MaxSeqenceLength"];
+                return (int)this["MaxSequenceLength"];
             }
             set
             {
@@ -62,7 +62,7 @@ namespace KeyGameModel
         {
             get
             {
-                return (int)this["AdditionalLetterBonus"];
+                return (double)this["AdditionalLetterBonus"];
             }
             set
             {
@@ -75,7 +75,7 @@ namespace KeyGameModel
         {
             get
             {
-                return (int)this["ChainingBonus"];
+                return (double)this["ChainingBonus"];
             }
             set
             {
@@ -88,7 +88,7 @@ namespace KeyGameModel
         {
             get
             {
-                return (int)this["ChainingBonusCap"];
+                return (double)this["ChainingBonusCap"];
             }
             set
             {

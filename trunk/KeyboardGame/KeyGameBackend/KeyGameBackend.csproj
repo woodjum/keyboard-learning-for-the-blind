@@ -49,7 +49,7 @@
     <Compile Include="LevelSequence.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExerciseGenerator\ExerciseGenerator.csproj">
+    <ProjectReference Include="..\ExerciseGenerator\ExerciseGenerator\ExerciseGenerator.csproj">
       <Project>{398C9C84-3396-4F1A-9663-CD8E3019A5C1}</Project>
       <Name>ExerciseGenerator</Name>
     </ProjectReference>

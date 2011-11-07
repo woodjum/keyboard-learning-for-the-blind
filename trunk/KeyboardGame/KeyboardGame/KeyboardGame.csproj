@@ -119,7 +119,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Documents\Visual Studio 2008\Projects\KeyGameBackend\KeyGameBackend.csproj">
+    <ProjectReference Include="..\KeyGameBackend\KeyGameBackend.csproj">
       <Project>{6C3C8393-0CC3-4897-BEBD-E0DF527B599E}</Project>
       <Name>KeyGameBackend</Name>
     </ProjectReference>

@@ -12,9 +12,14 @@ namespace KeyboardLesson
 {
     public partial class MainForm : Form
     {
-        static String LESSON_FOLDER = "lessons";        
+        const String lessonFolder = "lessons";        
         String[] lessonFiles;                       // Array of lesson script files
 
+        //Tempory fix: main form will ignore input after a lesson completes
+        // for a fixed amount of time because keys from the lesson replay on
+        // the main form
+        const double inputDrainInSec = 5;   //How many seconds to ignore input when draining
+        DateTime processInputAfterTime = DateTime.MinValue; //when to resume processing of input
 
         public MainForm()
         {
@@ -35,14 +40,14 @@ namespace KeyboardLesson
         private void Initialize()
         {
             //find all avalible lesson files in the lessons directory
-            lessonFiles = Directory.GetFiles(LESSON_FOLDER, "lesson*.txt");
+            lessonFiles = Directory.GetFiles(lessonFolder, "lesson*.txt");
             Console.WriteLine("lessons found: " + lessonFiles.Length);
    
             //display lessons found in listbox
             foreach (string lessonFile in lessonFiles)
             {
                 //remove folder name and \ from the front of the filename
-                string lessonName = lessonFile.Substring(LESSON_FOLDER.Length + 1);
+                string lessonName = lessonFile.Substring(lessonFolder.Length + 1);
 
                 //remove the .txt from the end of the filename
                 lessonName = lessonName.Substring(0,lessonName.Length - 4);
@@ -92,6 +97,8 @@ namespace KeyboardLesson
             //select the next lesson with wrap around
             this.LessonListBox.SelectedIndex = (lessonIndex +1) % this.lessonFiles.Length;
          
+            //Temporary fix: set the time such that input from the lesson will be drained
+            this.processInputAfterTime = DateTime.UtcNow.AddSeconds(MainForm.inputDrainInSec);
         }
 
         //detects that the space key or the enter key was pressed 
@@ -99,15 +106,25 @@ namespace KeyboardLesson
         void MainFrom_KeyUp(object sender, KeyEventArgs e)
         {
             //Debug
-            Console.Out.WriteLine("Main Form Received key " + e.KeyCode.ToString());
+            Console.Out.Write("Main Form Received key " + e.KeyCode.ToString());
 
             //Known Bug: When the lesson form closes, the main form suddenly
             //           receives all the keys pressed when the lesson form was open
-            //
-            if (Keys.Return.Equals(e.KeyCode) )
-           {
-               RunCurrentLesson();
-           }
+            //Temporary Fix: ignore input for a fixed abmount of time after the lesson finishes
+            if (this.processInputAfterTime.Ticks < DateTime.UtcNow.Ticks)
+            {
+                //Debug
+                Console.Out.WriteLine(" (processed)");
+                if (Keys.Space.Equals(e.KeyCode))
+                {
+                    RunCurrentLesson();
+                }
+            }
+            else
+            {
+                //Debug
+                Console.Out.WriteLine(" (ignored)");
+            }
             
         }
     }

@@ -79,6 +79,7 @@ namespace KeyboardLesson
             LessonForm lesson = new LessonForm(lessonFile);
             lesson.TopMost = true;
             lesson.LessonFinished += new EventHandler(this.LessonForm_LessonFinished);
+            lesson.FormClosed += new FormClosedEventHandler(this.LessonForm_FormClosed);
             lesson.ShowDialog(this);
            
            
@@ -89,7 +90,7 @@ namespace KeyboardLesson
         private void LessonForm_LessonFinished(object sender, EventArgs e)
         {
            
-            this.Show();
+           
 
             //grab the currently selected index
             int lessonIndex = this.LessonListBox.SelectedIndex;
@@ -99,6 +100,13 @@ namespace KeyboardLesson
          
             //Temporary fix: set the time such that input from the lesson will be drained
             this.processInputAfterTime = DateTime.UtcNow.AddSeconds(MainForm.inputDrainInSec);
+        }
+
+        //display the main form if the smaller one closes
+        private void LessonForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Show();
+
         }
 
         //detects that the space key or the enter key was pressed 

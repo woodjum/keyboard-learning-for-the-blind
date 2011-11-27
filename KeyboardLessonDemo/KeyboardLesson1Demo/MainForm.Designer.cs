@@ -56,9 +56,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(26, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 13);
+            this.label2.Size = new System.Drawing.Size(151, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "按回车键或空格键开始一个教训";
+            this.label2.Text = "按回车键或空格键开始一课";
             // 
             // MainForm
             // 

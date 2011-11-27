@@ -123,7 +123,7 @@ namespace KeyboardLesson
             {
                 //Debug
                 Console.Out.WriteLine(" (processed)");
-                if (Keys.Space.Equals(e.KeyCode))
+                if (Keys.Space.Equals(e.KeyCode) || Keys.Return.Equals(e.KeyCode))
                 {
                     RunCurrentLesson();
                 }

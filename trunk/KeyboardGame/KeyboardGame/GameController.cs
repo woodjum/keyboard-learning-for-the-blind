@@ -41,7 +41,7 @@ namespace KeyboardGame
             //intiliazing model
             this.configuration = configuration;
             this.level = level;
-            this.model = new MockGameModel(configuration, level);
+            this.model = new GameModel(configuration, level);
            
             
             //attaching input hooks

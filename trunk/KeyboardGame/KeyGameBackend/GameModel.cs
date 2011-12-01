@@ -67,18 +67,18 @@ namespace KeyGameModel
                         _currentSequenceSpeedBonus = 0;
 
                         returnFlags = returnFlags | GameState.EndOfSequence;
+
+                        if (_level.EndOfLevel)
+                        {
+                            _chainBonusRunningTotal += ApplyChainBonus(_currentChainScore, _currentChainLength);
+                            _currentChainScore = 0;
+                            _currentChainLength = 0;
+                            returnFlags = returnFlags | GameState.EndOfLevel;
+                        }
                     }
                     else
                     {
                         _currentSequence.AdvanceToNextCharacter();
-                    }
-
-                    if (_level.EndOfLevel)
-                    {
-                        _chainBonusRunningTotal += ApplyChainBonus(_currentChainScore, _currentChainLength);
-                        _currentChainScore = 0;
-                        _currentChainLength = 0;
-                        returnFlags = returnFlags | GameState.EndOfLevel;
                     }
                 }
                 else

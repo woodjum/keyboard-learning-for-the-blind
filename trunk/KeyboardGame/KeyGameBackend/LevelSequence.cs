@@ -62,13 +62,13 @@ namespace KeyGameModel
         {
             get
             {
-                if (_currentIndex >= _sequence.Count)
+                if (_currentIndex >= _sequence.Count - 1)
                 {
                     return null;
                 }
                 else
                 {
-                    return _sequence[_currentIndex++];
+                    return _sequence[++_currentIndex];
                 }
             }
         }

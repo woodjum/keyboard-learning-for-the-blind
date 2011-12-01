@@ -48,7 +48,7 @@ namespace KeyGameModel
         {
             get
             {
-                return _index >= _sequences.Count - 1;
+                return _index >= _sequences.Count;
             }
         }
 

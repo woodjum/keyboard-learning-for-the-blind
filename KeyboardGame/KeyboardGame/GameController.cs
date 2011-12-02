@@ -166,15 +166,19 @@ namespace KeyboardGame
                 GameModel.GameState gameState = this.model.UserInput(curKeyCode, differenceFromLastKey.Milliseconds);
 
                 //input is either correct or incorrect. Make the correct sound
-                if ((gameState & GameModel.GameState.Correct) == GameModel.GameState.Correct)
-                {
-                    this.talkingWindow.PlaySound(".\\Sounds\\correct.wav");
-                }
-                else
+                if ((gameState & GameModel.GameState.Correct) != GameModel.GameState.Correct)
                 {
                     this.talkingWindow.PlaySound(".\\Sounds\\wrong.wav");
                 }
 
+
+                if (((gameState & GameModel.GameState.EndOfLevel) | (gameState & GameModel.GameState.EndOfSequence)) > 0)
+                {
+                    if ((gameState & GameModel.GameState.Correct) == GameModel.GameState.Correct)
+                    {
+                        this.talkingWindow.PlaySound(".\\Sounds\\correct.wav");
+                    }
+                }
 
                 //Move onto next sequence, or score screen if needed
                 //Otherwise it will wait for next input

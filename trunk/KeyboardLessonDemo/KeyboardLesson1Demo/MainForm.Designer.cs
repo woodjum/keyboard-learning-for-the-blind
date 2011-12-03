@@ -46,9 +46,10 @@
             // LessonListBox
             // 
             this.LessonListBox.FormattingEnabled = true;
-            this.LessonListBox.Location = new System.Drawing.Point(22, 66);
+            this.LessonListBox.ItemHeight = 12;
+            this.LessonListBox.Location = new System.Drawing.Point(22, 61);
             this.LessonListBox.Name = "LessonListBox";
-            this.LessonListBox.Size = new System.Drawing.Size(234, 173);
+            this.LessonListBox.Size = new System.Drawing.Size(234, 160);
             this.LessonListBox.TabIndex = 1;
             // 
             // label2
@@ -62,14 +63,15 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(284, 242);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LessonListBox);
             this.Controls.Add(this.label1);
             this.Name = "MainForm";
             this.Text = "Keyboard Learning";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

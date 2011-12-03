@@ -22,7 +22,7 @@ namespace KeyboardLesson
             _mappings.Add("f", "<pron sym=\"fo 1\">f</pron>");
             _mappings.Add("g", "<pron sym=\"ge 1\">g</pron>");
             _mappings.Add("h", "<pron sym=\"he 1\">h</pron>");
-            _mappings.Add("i", "<pron sym=\"i 1\">i</pron>");
+            _mappings.Add("i", "<pron sym=\"yi 1\">i</pron>");
             _mappings.Add("j", "<pron sym=\"ji 1\">j</pron>");
             _mappings.Add("k", "<pron sym=\"ke 1\">k</pron>");
             _mappings.Add("l", "<pron sym=\"le 1\">l</pron>");

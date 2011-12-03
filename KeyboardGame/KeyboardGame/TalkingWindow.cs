@@ -38,7 +38,7 @@ namespace KeyboardGame
         private void TalkingWindow_Load(object sender, EventArgs e)
         {
              // Initialize speech 
-            speech.Rate   = 2;   // speechRate ranges from -10 to 10.
+            speech.Rate   = 6;   // speechRate ranges from -10 to 10.
             speech.Volume = 100; // volume ranging from 0 to 100
             speech.Voice = speech.GetVoices("Name=Microsoft Simplified Chinese", "").Item(0); // Default to Chinese Voice
             

@@ -36,16 +36,6 @@ namespace KeyboardGame
             talkingWindow.FormClosed += new FormClosedEventHandler(TalkingController_FormClosed);
         }
 
-//        public void setTalkingWindow(TalkingWindow window)
-//        {
-//            talkingWindow = window;
-//        }
-
-//        public void setTalkingModel(TalkingModel model)
-//        {
-//            talkingModel = model;
-//        }
-
         public void Run(){
             Application.Run(talkingWindow);
         }
@@ -92,7 +82,9 @@ namespace KeyboardGame
                     // Speak the key character that is pressed
                     if (this.speakKeysPressed)
                     {
-                        talkingWindow.Speak(curKeyCode);
+                        // TODO : handle hang (possibly) caused by Converter (location 2)
+                        string speakString = PinYinSpeechConverter.Convert(curKeyCode);
+                        talkingWindow.Speak(speakString);
                     }
                 }
 

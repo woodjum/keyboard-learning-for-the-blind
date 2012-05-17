@@ -24,7 +24,11 @@ namespace KeyboardGame
         //timers
         DateTime promptFinish = DateTime.MinValue;
         DateTime lastCorrectKeyPress = DateTime.MaxValue;
-        double inputDrainSec = .25;
+
+        //input draining
+        TimeSpan inputDrainTime = TimeSpan.FromSeconds(.25);
+        bool inputDrained = true;
+        System.Threading.Timer inputDrainTimer; 
 
         //game model
         BaseGameModel model;
@@ -50,6 +54,8 @@ namespace KeyboardGame
 
             this.talkingWindow.Load += new System.EventHandler(this.TalkingWindow_Load);
             this.talkingWindow.Shown += new System.EventHandler(this.TalkingWindow_Shown);
+
+            this.inputDrainTimer = new System.Threading.Timer(inputDrainCallback, null, TimeSpan.FromMilliseconds(-1), TimeSpan.FromMilliseconds(-1));
         }
 
         private void TalkingWindow_Load(object sender, EventArgs e)
@@ -114,14 +120,18 @@ namespace KeyboardGame
             this.speakKeysPressed = false;
 
             this.talkingWindow.Speak("键入",false);
-            this.talkingWindow.Speak(prompt, false);
-            this.talkingWindow.PlaySound(".\\Sounds\\prompt.wav");
+            //TODO : handle hang (possibly) caused by Converter (location 1)
+            string speakPrompt = PinYinSpeechConverter.Convert(prompt);
+            this.talkingWindow.Speak(speakPrompt, false);
+
 
             //start timer
             this.promptFinish = DateTime.Now;
             this.lastCorrectKeyPress = this.promptFinish;
 
             this.currentViewState = ViewState.Listening;
+            this.inputDrained = false;
+            this.inputDrainTimer.Change(this.inputDrainTime, TimeSpan.FromMilliseconds(-1));
             
             if (HIDE_PROMPT)
             {
@@ -132,7 +142,7 @@ namespace KeyboardGame
         private void Listening_KeyPress(KeyPressEventArgs e) 
         {
             DateTime pressTime = DateTime.Now;
-            if (pressTime.Ticks > this.promptFinish.AddSeconds(this.inputDrainSec).Ticks)
+            if (inputDrained)
             {
                 //update playview with input and speak it
                 this.speakKeysPressed = true;
@@ -154,7 +164,7 @@ namespace KeyboardGame
             
             //only do calcuations after draining input after prompt
             DateTime pressTime = DateTime.Now;
-            if (pressTime.Ticks > this.promptFinish.AddSeconds(this.inputDrainSec).Ticks)
+            if (inputDrained)
             {
 
                 //caclulate speed
@@ -200,48 +210,69 @@ namespace KeyboardGame
             }
         }
 
+       private void inputDrainCallback(Object stateInfo)
+        {
+            this.talkingWindow.PlaySound(".\\Sounds\\prompt.wav");
+            this.inputDrained = true;
+        }
+
+
         void keyboardHook_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (currentViewState)
+            try
+              {
+                switch (currentViewState)
+                {
+                    case ViewState.Intro:
+                        // Any Key Press will move onto the actual game
+                        StartPlaying();
+                        break;
+                    case ViewState.Prompting:
+                        //ignore input when prompting
+                        break;
+                    case ViewState.Listening:
+                        //Handle the key press when listening
+                        Listening_KeyPress(e);
+                        break;
+                    case ViewState.Score:
+                        // Any Key Press will exit the game
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception ex)
             {
-                case ViewState.Intro:
-                    // Any Key Press will move onto the actual game
-                    StartPlaying();
-                    break;
-                case ViewState.Prompting:
-                    //ignore input when prompting
-                    break;
-                case ViewState.Listening:
-                    //Handle the key press when listening
-                    Listening_KeyPress(e);
-                    break;
-                case ViewState.Score:
-                    // Any Key Press will exit the game
-                    break;
-                default:
-                    break;
+                MessageBox.Show("Exception!\n" + ex.Message);
             }
         }
 
         void keyboardHook_KeyUp(object sender, KeyEventArgs e)
         {
-            switch (currentViewState)
+            try
             {
-                case ViewState.Intro:
-                    // Any Key Press will move onto the actual game
-                    break;
-                case ViewState.Prompting:
-                    //ignore input when prompting
-                    break;
-                case ViewState.Listening:
-                    //Handle the key up when listening
-                    Listening_KeyUp(sender, e);
-                    break;
-                case ViewState.Score:
-                    // Any Key Press will exit the game
-                    break;
-                default:
-                    break;
+                switch (currentViewState)
+                {
+                    case ViewState.Intro:
+                        // Any Key Press will move onto the actual game
+                        break;
+                    case ViewState.Prompting:
+                        //ignore input when prompting
+                        break;
+                    case ViewState.Listening:
+                        //Handle the key up when listening
+                        Listening_KeyUp(sender, e);
+                        break;
+                    case ViewState.Score:
+                        // Any Key Press will exit the game
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception!\n" + ex.Message);
             }
         }
 

@@ -132,6 +132,9 @@ namespace KeyboardGame
             this.currentViewState = ViewState.Listening;
             this.inputDrained = false;
             this.inputDrainTimer.Change(this.inputDrainTime, TimeSpan.FromMilliseconds(-1));
+
+            // moved out of the callback function due to weird timing issue
+            this.talkingWindow.PlaySound(".\\Sounds\\prompt.wav");
             
             if (HIDE_PROMPT)
             {
@@ -210,9 +213,8 @@ namespace KeyboardGame
             }
         }
 
-       private void inputDrainCallback(Object stateInfo)
+        void inputDrainCallback(Object stateInfo)
         {
-            this.talkingWindow.PlaySound(".\\Sounds\\prompt.wav");
             this.inputDrained = true;
         }
 
@@ -243,7 +245,7 @@ namespace KeyboardGame
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Exception!\n" + ex.Message);
+                MessageBox.Show("Exception!\n" + ex.Message + "\n" + ex.StackTrace);
             }
         }
 
@@ -272,7 +274,7 @@ namespace KeyboardGame
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Exception!\n" + ex.Message);
+                MessageBox.Show("Exception!\n" + ex.Message + "\n" + ex.StackTrace);
             }
         }
 

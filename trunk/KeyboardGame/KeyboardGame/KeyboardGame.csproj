@@ -43,12 +43,19 @@
   <ItemGroup>
     <Compile Include="GameController.cs" />
     <Compile Include="KeySoundMapping.cs" />
+    <Compile Include="LevelSelectionController.cs" />
     <Compile Include="PinYinSpeechConverter.cs" />
     <Compile Include="Views\GameIntroView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\GameIntroView.Designer.cs">
       <DependentUpon>GameIntroView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LevelSelectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\LevelSelectionView.Designer.cs">
+      <DependentUpon>LevelSelectionView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\PlayView.cs">
       <SubType>UserControl</SubType>
@@ -78,6 +85,10 @@
       <DependentUpon>GameIntroView.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\LevelSelectionView.resx">
+      <DependentUpon>LevelSelectionView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\PlayView.resx">
       <DependentUpon>PlayView.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -100,7 +111,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="App.config" />
-    <None Include="Levels\TestExercise1.exercise">
+    <None Include="Levels\Level1.exercise">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Levels\Level2.exercise">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Levels\Level3.exercise">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Levels\Level4.exercise">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Levels\Level5.exercise">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">

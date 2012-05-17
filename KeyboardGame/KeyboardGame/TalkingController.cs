@@ -91,7 +91,7 @@ namespace KeyboardGame
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Exception!\n" + ex.Message);
+                MessageBox.Show("Exception!\n" + ex.Message + "\n" + ex.StackTrace);
             }
         }
 
@@ -118,7 +118,7 @@ namespace KeyboardGame
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Exception!\n" + ex.Message);
+                MessageBox.Show("Exception!\n" + ex.Message + "\n" + ex.StackTrace);
             }
         }
 

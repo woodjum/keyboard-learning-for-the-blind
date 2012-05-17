@@ -17,12 +17,16 @@ namespace KeyboardGame
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            GameConfiguration config = GameConfigReader.GetGameConfig(@".\KeyboardGame.exe");
-            Level level = new Level(".\\Levels\\TestExercise1.exercise");
-
-            GameController controller = new GameController(config, level);
- 
+            LevelSelectionController controller = new LevelSelectionController();
             controller.Run();
+
+            //GameConfiguration config = GameConfigReader.GetGameConfig(@".\KeyboardGame.exe");
+            //Level level = new Level(".\\Levels\\TestExercise1.exercise");
+
+            //GameController controller = new GameController(config, level);
+ 
+            //controller.Run();
+             
         }
     }
 }

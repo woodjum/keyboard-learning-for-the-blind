@@ -35,10 +35,6 @@ namespace KeyboardGame
         GameConfiguration configuration;
         Level level;
 
-        //stuff to pull from the game model
-        //String levelName = "Level 1";
-        //String levelDescription = "abcde";
-
         public GameController(GameConfiguration configuration, Level level)
             : base()
         {
@@ -47,7 +43,6 @@ namespace KeyboardGame
             this.level = level;
             this.model = new GameModel(configuration, level);
            
-            
             //attaching input hooks
             keyboardHook.KeyPress += new KeyPressEventHandler(keyboardHook_KeyPress);
             keyboardHook.KeyUp += new KeyEventHandler(keyboardHook_KeyUp);
@@ -71,8 +66,6 @@ namespace KeyboardGame
         {
 
             this.talkingWindow.Speak(this.level.Name + this.level.Description);
-  
-
         }
 
 
@@ -238,6 +231,7 @@ namespace KeyboardGame
                         break;
                     case ViewState.Score:
                         // Any Key Press will exit the game
+                        Finish();
                         break;
                     default:
                         break;

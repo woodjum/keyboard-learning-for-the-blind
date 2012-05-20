@@ -11,6 +11,7 @@ namespace KeyGameModel
         private String _characters = String.Empty;
         private List<LevelSequence> _sequences = null;
         private int _index = 0;
+        private Random _rand = new Random();
 
         public String Name
         {
@@ -99,6 +100,7 @@ namespace KeyGameModel
                     }
                 }
             }
+            RandomizeSequence();
         }
 
         public double GetTheoreticalTopScore(GameConfiguration config)
@@ -119,6 +121,22 @@ namespace KeyGameModel
             chainBonus = (baseScore + speedBonus) * config.ChainingBonusCap;
 
             return baseScore + speedBonus + chainBonus;
+        }
+
+        private void RandomizeSequence()
+        {
+            List<LevelSequence> randomizeSequences = new List<LevelSequence>();
+            int count = _sequences.Count;
+
+            for (int i = 0; i < count; i++)
+            {
+                int index = _rand.Next(_sequences.Count);
+
+                randomizeSequences.Add(_sequences[index]);
+                _sequences.RemoveAt(index);
+            }
+
+            _sequences = randomizeSequences;
         }
     }
 }

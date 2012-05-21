@@ -14,7 +14,8 @@ namespace KeyboardGame
         private const string LevelFolderPath = @".\Levels";
         private const string LevelFilePattern = @"*.exercise";
 
-        private List<Level> levels;
+        private List<string> levelNames;
+        private string[] levelFiles;
 
         private LevelSelectionView levelSelectionView = new LevelSelectionView();
 
@@ -24,7 +25,7 @@ namespace KeyboardGame
         {
             this.speakKeysPressed = false;
 
-            levels = new List<Level>();
+            levelNames = new List<string>();
 
             this.talkingWindow.Load += new System.EventHandler(this.TalkingWindow_Load);
             this.talkingWindow.Shown += new System.EventHandler(this.TalkingWindow_Shown);
@@ -73,22 +74,22 @@ namespace KeyboardGame
         private void LoadLevels()
         {
             // Find and read in the level files
-            string[] levelFiles = Directory.GetFiles(LevelFolderPath, LevelFilePattern, SearchOption.TopDirectoryOnly);
-            List<string> levelNames = new List<string>();
+            this.levelFiles = Directory.GetFiles(LevelFolderPath, LevelFilePattern, SearchOption.TopDirectoryOnly);
+            this.levelNames = new List<string>();
             foreach(string levelFile in levelFiles)
             {
                 Level level = new Level(levelFile);
-                levels.Add(level);
-                levelNames.Add(level.Name);
+                this.levelNames.Add(level.Name);
             }
 
             // Display the levels
-            this.levelSelectionView.DisplayLevels(levelNames);
+            this.levelSelectionView.DisplayLevels(this.levelNames);
         }
         
         private void RunGame(Object data)
         {
-            Level level = (Level)data;
+            string levelFilename = (string)data;
+            Level level = new Level(levelFilename);
             GameConfiguration config = GameConfigReader.GetGameConfig(@".\KeyboardGame.exe");
             GameController controller = new GameController(config, level);
             controller.Run();
@@ -97,19 +98,19 @@ namespace KeyboardGame
         private void RunSelectedLevel()
         {
             int index = levelSelectionView.GetLevelListBox().SelectedIndex;
-            Level level = levels[index];
+            string levelFilename = this.levelFiles[index];
 
             // Run game on seperate thread
             gameThread = new Thread(new ParameterizedThreadStart(RunGame));
-            gameThread.Start(level);
+            gameThread.Start(levelFilename);
             gameThread.Join();
-            levelSelectionView.GetLevelListBox().SelectedIndex = (index + 1) % levels.Count;
+            levelSelectionView.GetLevelListBox().SelectedIndex = (index + 1) % this.levelFiles.Length;
         }
 
         private void SpeakSelectedLevel()
         {
             int index = levelSelectionView.GetLevelListBox().SelectedIndex;
-            string levelName = levels[index].Name;
+            string levelName = this.levelNames[index];
             this.talkingWindow.Speak("玩" + levelName, true);
         }
     }
